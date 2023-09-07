@@ -6,7 +6,6 @@ import { BugButton } from './providers/ErrorBoundary';
 export function App() {
   return (
       <div className="App">
-          <BugButton />
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <AppRouter />

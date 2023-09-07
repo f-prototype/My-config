@@ -1,4 +1,5 @@
 import type { Config } from 'jest';
+import path from 'path';
 
 const config: Config = {
 
@@ -20,11 +21,18 @@ const config: Config = {
   moduleDirectories: [
     'node_modules',
   ],
+  modulePaths: ['<rootDir>src'],
   testMatch: [
     // Обнаружил разницу между МАК ОС и ВИНДОУС!!!
     '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)',
   ],
   rootDir: '../../',
+  setupFilesAfterEnv: ['<rootDir>config/jest/setupTests.ts'],
+  moduleNameMapper: {
+    '\\.(s?css)$': 'identity-obj-proxy',
+    '\\svg': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+  },
+
 };
 
 export default config;
